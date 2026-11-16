@@ -18,7 +18,9 @@ and then cached on your computer, so later runs work offline.
 
 import re
 
-MODEL_NAME = "models/t5-grammar"
+import os
+_LOCAL_MODEL = os.path.join(os.path.dirname(os.path.abspath(__file__)), "models", "t5-grammar")
+MODEL_NAME = _LOCAL_MODEL if os.path.isdir(_LOCAL_MODEL) else "vennify/t5-base-grammar-correction"
 MAX_INPUT_CHARS = 3000      # protects the app from extremely long inputs
 MAX_TOKENS = 128            # longest sentence (in word-pieces) the model will write
 
