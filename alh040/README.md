@@ -1,8 +1,8 @@
 # ✍️ GrammarCoach: AI Grammar Fixer & Learning Tool
 
 **Course:** Professional Training (YN3012170034), Mid-term Project
-**Student:** [Your full name], Student ID 20243120040
-**Folder:** `neh040`
+**Student:** AL-HAMMADI NEHAL MUNEF MOHAMMED ABDULLAH, Student ID 20243120040
+**Folder:** `alh040`
 
 GrammarCoach is an interactive web app that **corrects English grammar with a Transformer model and
 teaches the learner *why* each correction was made**. Most grammar checkers only fix text. GrammarCoach
@@ -70,7 +70,7 @@ The model only outputs a corrected sentence. To turn this into learning feedback
 ## 📁 Project Structure
 
 ```
-neh040/
+alh040/
 ├── app.py              # Gradio web interface (4 tabs)
 ├── grammar_model.py    # loads the T5 model and corrects text
 ├── feedback.py         # finds edits, classifies mistakes, builds lessons + coloured diff
@@ -97,7 +97,7 @@ downloaded automatically.
 
 ```bash
 # 1. Go to the project folder
-cd neh040
+cd PT22026/alh040
 
 # 2. Create and activate a virtual environment
 python -m venv venv
@@ -136,7 +136,7 @@ python grammar_model.py
 
 ### Evaluate the model
 ```bash
-python evaluate.py              # all 748 JFLEG test sentences (about 5-15 min on CPU)
+python evaluate.py              # all 747 JFLEG test sentences (about 5-15 min on CPU)
 python evaluate.py --limit 100  # quick run
 ```
 This creates `results/metrics.json`, `results/score_comparison.png`, `results/edit_categories.png` and
@@ -151,7 +151,7 @@ python -m pytest tests/
 
 ## 📊 Evaluation Method
 
-- **Dataset:** JFLEG **test** split (748 learner sentences, each with 4 human corrections). The quiz uses the
+- **Dataset:** JFLEG **test** split (747 learner sentences, each with 4 human corrections). The quiz uses the
   separate **validation** split, so evaluation data is never shown in the quiz.
 - **Baseline:** the original, uncorrected sentence. A useful model must score clearly higher than "doing nothing".
 - **Metrics:**
@@ -164,9 +164,9 @@ python -m pytest tests/
 
 | Metric | Original | After AI |
 |---|---|---|
-| GLEU | *run evaluate.py* | |
-| Similarity to teacher | | |
-| Exact match | | |
+| GLEU | 0.787 | **0.911** |
+| Similarity to teacher | 91.2% | **97.0%** |
+| Exact match | 26.6% | **61.3%** |
 
 ---
 
