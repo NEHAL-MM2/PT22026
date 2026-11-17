@@ -181,6 +181,18 @@ If the dataset cannot be downloaded, the quiz falls back to 12 built-in practice
 
 ---
 
+## 🛠️ Troubleshooting
+
+| Problem | Fix |
+|---|---|
+| `venv` stops working after copying the project to another computer (`did not find executable at ...python.exe`) | Virtual environments are not portable. Create a new one: `python -m venv venv`, activate it, then `pip install -r requirements.txt`. |
+| PowerShell: `running scripts is disabled on this system` | Run once: `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned` |
+| PowerShell: `\venv\Scripts\Activate.ps1 is not recognized` | Start the path with a dot: `.\venv\Scripts\Activate.ps1` |
+| Gradio stops with `startup-events failed (code 502)` | A system proxy/VPN intercepts `127.0.0.1`. `app.py` now adds `localhost,127.0.0.1` to `NO_PROXY` automatically. |
+| `models/t5-grammar is not a local folder` | Fixed: if `models/t5-grammar` is missing, the model is downloaded from the Hugging Face Hub. |
+| Model or JFLEG download fails in mainland China | Set a mirror first: `$env:HF_ENDPOINT="https://hf-mirror.com"` (PowerShell) or use a VPN. |
+| `DeprecationWarning` about `theme` / `css` | Harmless in Gradio 5.x; these options move to `launch()` only in Gradio 6. |
+
 ## 📖 References
 
 1. Raffel, C. et al. (2020). *Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer.* JMLR 21(140).
