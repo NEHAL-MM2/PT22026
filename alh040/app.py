@@ -13,6 +13,13 @@ Tabs:
 import json
 import os
 
+# Requests to the local Gradio server must never go through a system proxy or VPN;
+# otherwise Gradio's start-up check of http://127.0.0.1:7860 fails with HTTP 502.
+for _key in ("NO_PROXY", "no_proxy"):
+    _value = os.environ.get(_key, "")
+    if "127.0.0.1" not in _value:
+        os.environ[_key] = ",".join(filter(None, [_value, "localhost,127.0.0.1"]))
+
 import gradio as gr
 
 import grammar_model
