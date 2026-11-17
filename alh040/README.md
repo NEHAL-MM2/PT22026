@@ -22,6 +22,30 @@ make most often.
 
 ---
 
+## 🖼️ Screenshots
+
+**Fix My Writing** – the AI corrects the text, shows each change in colour and scores the writing:
+
+![Fix My Writing tab](docs/fix_my_writing.png)
+
+Each correction comes with a categorised mini-lesson:
+
+![Lessons for each correction](docs/fix_my_writing_lessons.png)
+
+**Practice Quiz** – correct a real learner sentence from JFLEG and get scored against teacher corrections:
+
+![Practice Quiz tab](docs/practice_quiz.png)
+
+**My Progress** – your mistakes by type and what to practise next:
+
+![My Progress tab](docs/my_progress.png)
+
+**How It Works** – the model explained, followed by the evaluation results:
+
+![How It Works tab](docs/how_it_works.png)
+
+![Evaluation results in the app](docs/evaluation_results.png)
+
 ## 🧠 The Machine Learning Model
 
 | | |
