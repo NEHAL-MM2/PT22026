@@ -117,7 +117,7 @@ downloaded automatically.
 
 ## 🚀 Installation
 
-**Requirements:** Python 3.10-3.12, about 2 GB of free disk space, and internet access the first time.
+**Requirements:** Python 3.10-3.12 (tested with Python 3.11.9 on Windows, CPU only), about 2 GB of free disk space, and internet access the first time.
 
 ```bash
 # 1. Go to the project folder
@@ -204,6 +204,14 @@ nothing needs to be added to the repository.
 If the dataset cannot be downloaded, the quiz falls back to 12 built-in practice sentences written for this project.
 
 ---
+
+## ⚠️ Known Limitations
+
+- **GLEU variant:** `metrics.py` uses the simple GLEU of Wu et al. (2016), min(precision, recall) over 1-4-grams. The official JFLEG GLEU also penalises errors copied from the source, so its scores are much lower. The numbers above are only meant to compare *before* vs *after* correction, not to compare with published results.
+- **Possible data overlap:** the model's author fine-tuned it on JFLEG (training on the validation split, evaluating on the test split), and notes that the released model moved some evaluation cases into training. Some test sentences may therefore have been seen in training, so the results may be optimistic. The quiz uses the validation split, which the model was trained on.
+- **Only four references:** a correct correction that none of the four teachers wrote counts as "worse" (e.g. *effect -> affect*), so 7.4% "made worse" is an upper bound.
+- **Rule-based mistake labels:** the 15 categories come from hand-written rules, not a learned model; unusual edits fall back to "word choice".
+- **Scope:** English only, best on single sentences up to 128 sub-word tokens; about 1.4 s per sentence on a laptop CPU; non-commercial use only (CC BY-NC-SA 4.0).
 
 ## 🛠️ Troubleshooting
 
